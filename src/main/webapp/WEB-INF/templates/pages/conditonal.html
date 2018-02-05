@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Conditional Evaluation Page</title>
+    <link rel="stylesheet" th:href="@{/assets/css/index.css}"/>
+</head>
+<body>
+
+
+
+    <div th:insert="utils/navbar :: ( ${arief.name} == 'Arief' ? 'navbar' : 'navbarUser')"></div>
+
+
+    <div th:text="${arief}"></div>
+
+    <div th:with="arief=${arief}">
+        <div th:if="${#strings.equals(arief.name,'Arief')}">Welcome admin</div>
+        <div th:unless="${#strings.equals(arief.name,'Arief')}">Welcome user</div>
+    </div>
+
+    <hr/>
+
+    <div>
+        <a th:href="@{//sekolahkoding.com}">Sekolah Koding</a>
+    </div>
+
+    <hr/>
+
+    <div th:if="${car.carName} == 'Ferrari'">
+        This is ferrari car <br/>
+        <a th:href="@{//google.co.id(q=${car.carName})}">Search Ferrari car</a>
+    </div>
+    <div th:if="${car.carName} == 'Bugatti'">
+        This is bugatti car <br/>
+        <a th:href="@{//google.co.id(q=${car.carName})}">Search bugatti car</a>
+    </div>
+
+    <div th:with="tPerson=${testPerson}">
+        <!--th:if check property if null-->
+        <div th:if="${tPerson.name} == null">
+            Person's name is null
+        </div>
+
+        <!--using default operator to check null value-->
+        <div th:text="${tPerson.address}?: 'Person\'s address is null'"></div>
+    </div>
+
+
+
+</body>
+</html>

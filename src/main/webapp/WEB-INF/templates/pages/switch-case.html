@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Switch case page </title>
+</head>
+<body>
+    <div th:switch="${booleanVal}">
+        <div th:case="true">This is true case</div>
+        <div th:case="*">This is false case</div>
+    </div>
+
+    <div th:switch="${person.name}">
+        <div th:case="'Arief'">Welcome arief</div>
+        <div th:case="'Putro'">Welcome putro</div>
+        <div th:case="null">Null values for name</div>
+        <div th:case="*">Default case for name</div>
+    </div>
+
+    <div th:with="intVal=${integerVal}">
+        <div th:if="${intVal} > 0">
+            positive values
+            <div th:if="${intVal} > 10">values more than ten</div>
+            <div th:unless="${intVal} > 10">values less than ten</div>
+        </div>
+
+        <div th:if="${intVal} == 0">zero values</div>
+        <div th:if="${intVal} < 0">negative values</div>
+    </div>
+
+</body>
+</html>

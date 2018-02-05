@@ -1,0 +1,6 @@
+body{
+    margin :0;
+}
+
+nav{ background-color: dodgerblue; padding : 5px; color : white;}
+nav h1  { margin : 0;}

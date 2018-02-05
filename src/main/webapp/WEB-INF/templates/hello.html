@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Hello Page</title>
+    <link rel="stylesheet" th:href="@{/assets/css/index.css}"/>
+</head>
+<body>
+
+
+
+
+
+
+    <div th:insert="~{utils/navbar :: navbarUser}"></div>
+
+
+    <!--using parameter fragment-->
+    <div th:insert="utils/navbar :: sayHello('Arief','Hello world')"></div>
+    <!--using parameter fragment-->
+
+    <div th:with="a='<b>Hello world</b>',b='World Hello',c=${a}+' appended'">
+        <div>[(${a})]</div>
+        <div>[(${b})]</div>
+        <div>[(${c})]</div>
+    </div>
+
+    <h1 th:text="${msg}"></h1>
+
+    <ul>
+        <li><a th:href="@{/example/if-unless}">If unless page</a></li>
+        <li><a th:href="@{/example/switch-case}">Switch case page</a></li>
+    </ul>
+
+
+
+
+</body>
+</html>
